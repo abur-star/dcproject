@@ -16,6 +16,8 @@ services:
 
     command: python ./sender.py
 
+    network_mode: host
+    
     depends_on:
       - broker
 
@@ -24,6 +26,8 @@ services:
     build: receiver/
  
     command: python ./receiver.py
+    
+    network_mode: host
 
     depends_on:
-      - broker
+      - sender
